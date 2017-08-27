@@ -22,12 +22,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findById(Long Id) throws Exception {
-        return userRepository.findOne(Math.toIntExact(Id));
-    }
-
-
-    public User findById(Integer id) throws Exception {
-        return userRepository.findOne(id);
+        return userRepository.findOne(Id);
     }
 
     @Override
@@ -52,26 +47,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUserByUserNameAndPassword(User user) {
-
-        List<User> usr = userRepository.findTop1ByUserNameAndPassword(user.getUserName(), user.getPassword());
-        User u = null;
-        if (null != usr) {
-            System.out.println("data retrived"+usr.size());
-            for (User userr : usr) {
-                System.out.println(userr.getPassword()+"--=-=-=-=-=-=-=-=-");
-            }
-        } else {
-            System.out.println("returned null");
-        }
-        try {
-            u = findById(1l);
-            System.out.println("byid:" + u);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("___________________Received:___" + u.getUserName() + "--+u.getPassword()+" + "________________________________");
-        return u;
+        User usr = userRepository.findByUserNameAndPassword(user.getUserName(), user.getPassword());
+        return usr;
 
     }
 }

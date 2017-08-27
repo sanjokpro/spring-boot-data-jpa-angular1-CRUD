@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping(value = "/")
 public class AppController {
     @Autowired
     private UserService userService;
@@ -19,12 +19,9 @@ public class AppController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/login")
     public @ResponseBody User login(@RequestBody UserDto userDto) {
-        System.out.println("====================================================="+userDto);
         User user = new User();
         user.setPassword(userDto.getPassword());
         user.setUserName(userDto.getUserName());
-        System.out.println("----------------------------------"+user);
-
         return userService.findUserByUserNameAndPassword(user);
     }
 }
