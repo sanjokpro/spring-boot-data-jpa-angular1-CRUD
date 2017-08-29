@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+    <title>Signin Page</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <link href="css/login.css" rel="stylesheet">
+
+</head>
+<body ng-app="hrmsLogin">
+<div class="container" ng-controller="loginController">
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Log in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input ng-model="username" type="text" id="inputEmail" class="form-control" placeholder="Username" required
+               autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password"
+               required>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <div class="alert alert-danger" ng-if="!user" >
+            <label>Bad Credentials !</label>
+        </div>
+        <button class="btn btn-lg btn-success btn-block" type="submit" ng-click="login()">Sign in</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/restangular/1.5.2/restangular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controllers/loginController.js"></script>
+<script type="text/javascript" src="js/Services/loginService.js"></script>
+</body>
+</html>
