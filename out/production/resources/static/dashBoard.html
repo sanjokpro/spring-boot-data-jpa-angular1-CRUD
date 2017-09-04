@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <head>
     <title>DashBoard</title>
-    <!-- Bootstrap CSS CDN -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css">
+    <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="css/dash.css">
 </head>
@@ -16,8 +18,8 @@
             <li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">User</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li><a href="#">Add User</a></li>
-                    <li><a href="#">View Users</a></li>
+                    <li><a ui-sref="user">Add User</a></li>
+                    <li><a ui-sref="view()" ng-click="allUser()">View Users</a></li>
                 </ul>
             </li>
 
@@ -33,12 +35,10 @@
 
         </ul>
     </nav>
+    <div ui-view class="main-content"></div>
 
+</div>
 
-    <!-- Page Content -->
-    <div id="content" style="background: #7386D5">
-
-    </div>
 
 </div>
 
@@ -58,12 +58,18 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/restangular/1.5.2/restangular.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+<script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/controllers/dashBoardController.js"></script>
+<script type="text/javascript" src="js/Services/dashBoardService.js"></script>
+<script type="text/javascript" src="js/states.js"></script>
+
 </body>
 </html>

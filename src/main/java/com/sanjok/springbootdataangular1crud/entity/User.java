@@ -17,18 +17,17 @@ import java.util.Date;
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
-
+    @Version
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    // @Column(name = "user_id")
+
     private Long userId;
-    // @NotNull
-    //@Size(min = 1, max = 20)
-    //@Column(name = "user_name")
+
     private String userName;
-    //@NotNull
-    //@Size(min = 1, max = 20)
+    private String firstName;
+    private String lastName;
+    private String email;
     @Column(name = "password")
     private String password;
     private String address;
@@ -38,7 +37,8 @@ public class User implements Serializable {
     private String maritalStatus;
 
 
-    public User() {
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public Long getUserId() {
@@ -57,6 +57,30 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -65,6 +89,37 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getMaritalStatus() {
+        return maritalStatus;
+    }
+
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
+    }
 
     @Override
     public String toString() {

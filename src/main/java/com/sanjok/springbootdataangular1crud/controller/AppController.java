@@ -6,6 +6,8 @@ import com.sanjok.springbootdataangular1crud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/")
 public class AppController {
@@ -18,10 +20,23 @@ public class AppController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/login")
-    public @ResponseBody User login(@RequestBody UserDto userDto) {
+    public @ResponseBody
+    User login(@RequestBody UserDto userDto) {
         User user = new User();
         user.setPassword(userDto.getPassword());
         user.setUserName(userDto.getUserName());
         return userService.findUserByUserNameAndPassword(user);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/user/add")
+    public @ResponseBody
+    User addUser(@RequestBody UserDto userDto) {
+        return userService.insert(userDto.toUser());
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/user/all")
+    public @ResponseBody
+    List<User> getAllUser() {
+        return userService.findAll();
     }
 }
