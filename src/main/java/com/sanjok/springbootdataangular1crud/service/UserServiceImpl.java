@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
     public User deleteById(Long userId) throws Exception {
         User user = findById(userId);
         userRepository.delete(user);
-        return null;
+        return user;
     }
 
 

@@ -1,5 +1,11 @@
 angular.module("hrmsDashboard")
     .controller("dashBoardController", function ($scope, $localStorage, $window, dashBoardService, $state, NgTableParams) {
+
+        //____________________________________________________
+        $scope.toggleClass = function (targetId, className) {
+            className = className || 'is-open';
+            $(targetId).toggleClass(className);
+        };
         //_____________________________________________________
         $scope.user = {};
         $scope.user = $localStorage.user || 'Unknown User';
@@ -7,6 +13,15 @@ angular.module("hrmsDashboard")
         $scope.logOut = function () {
             $localStorage.$reset();
             $window.location.href = '../index.html';
+        }
+        //___________________________________________________
+        $scope.removeUser = function (userId) {
+            dashBoardService.removeUser(userId).then(
+                function () {
+
+                }, function () {
+
+                });
         }
         //___________________________________________________
 
@@ -23,8 +38,6 @@ angular.module("hrmsDashboard")
         //____________________________________________________
         $scope.allUser = function () {
             dashBoardService.findAllUser().then(function (receivedData) {
-                // $scope.data = [{userName: "usera", firstName: "A", lastName: "B"},
-                //     {userName: "userb", firstName: "B", lastName: "C"}];
                 $scope.tableParams = new NgTableParams({}, {dataset: receivedData.plain()});
                 console.log("SUCCESS");
             }, function () {

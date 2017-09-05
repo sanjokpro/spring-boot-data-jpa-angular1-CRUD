@@ -22,17 +22,14 @@ public class SpringBootDataAngular1CrudApplication implements CommandLineRunner 
         //SpringApplication.run(HrmsApplication.class, args);
         SpringApplication springApplication = new SpringApplication();
         ApplicationContext ctx = springApplication.run(SpringBootDataAngular1CrudApplication.class, args);
-
         UserRepository userRepository = ctx.getBean(UserRepository.class);
-
-
     }
 
     @Override
     public void run(String... args) throws Exception {
         System.out.println("===============[SpringDataAngularCRUD] Started Successfully!=======================");
     }
-
+/*
     @Bean
     public CommandLineRunner demo(UserRepository userRepository) {
         return (args) -> {
@@ -70,6 +67,6 @@ public class SpringBootDataAngular1CrudApplication implements CommandLineRunner 
             }
 
         };
-    }
+    }*/
 }
 

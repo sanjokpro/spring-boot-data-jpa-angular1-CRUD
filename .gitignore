@@ -57,15 +57,6 @@ overridedb.*
 settings.xml
 target
 transaction-logs
-out/production/resources/static/js/Services/dashBoardService.js
-out/production/resources/static/user-add.html
-out/production/resources/static/user-list.html
+out/production
 src/main/generated/
-src/main/resources/static/js/Services/dashBoardService.js
-src/main/resources/static/js/shared/
-src/main/resources/static/user-add.html
-src/main/resources/static/user-list.html
-src/main/resources/templates/
-src/test/generated_tests/
-src/test/resources/
 web/

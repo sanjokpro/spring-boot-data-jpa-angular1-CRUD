@@ -34,9 +34,23 @@ public class AppController {
         return userService.insert(userDto.toUser());
     }
 
+    @RequestMapping(method = RequestMethod.DELETE, value = "/user/remove/{id}")
+    public @ResponseBody
+    User removeUser(@PathVariable String id) {
+
+        try {
+            return userService.deleteById(Long.valueOf(id));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new User();
+    }
+
     @RequestMapping(method = RequestMethod.GET, value = "/user/all")
     public @ResponseBody
     List<User> getAllUser() {
         return userService.findAll();
     }
+
+
 }
