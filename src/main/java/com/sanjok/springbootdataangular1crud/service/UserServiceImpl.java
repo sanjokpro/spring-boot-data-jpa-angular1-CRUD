@@ -32,16 +32,23 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User update(User user) throws Exception {
-        //findById(user.getUserId());
-
+        System.out.println("user to save=====>" + user);
         return userRepository.save(user);
     }
 
     @Override
     public User deleteById(Long userId) throws Exception {
-        User user = findById(userId);
-        userRepository.delete(user);
-        return user;
+        try {
+            User user = findById(userId);
+            if (null != user) {
+                userRepository.delete(user);
+            }
+            return user;
+        } catch (Exception e) {
+            throw e;
+        }
+
+
     }
 
 

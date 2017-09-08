@@ -4,6 +4,7 @@ import com.sanjok.springbootdataangular1crud.dto.UserDto;
 import com.sanjok.springbootdataangular1crud.entity.User;
 import com.sanjok.springbootdataangular1crud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,9 +38,11 @@ public class AppController {
     @RequestMapping(method = RequestMethod.DELETE, value = "/user/remove/{id}")
     public @ResponseBody
     User removeUser(@PathVariable String id) {
-
         try {
-            return userService.deleteById(Long.valueOf(id));
+            if (null != id && !id.isEmpty())
+                return userService.deleteById(Long.valueOf(id));
+        } catch (InvalidDataAccessApiUsageException e) {
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,5 +55,15 @@ public class AppController {
         return userService.findAll();
     }
 
+    @RequestMapping(method = RequestMethod.PUT, value = "/user/update")
+    public User updateUser(@RequestBody UserDto user) {
+        try {
+            userService.update(user.toUser());
+            return userService.findById(user.getUserId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new User();
 
+    }
 }

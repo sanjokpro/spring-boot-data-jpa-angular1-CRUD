@@ -2,8 +2,6 @@ package com.sanjok.springbootdataangular1crud.dto;
 
 import com.sanjok.springbootdataangular1crud.entity.User;
 
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import java.util.Date;
 
 public class UserDto {
@@ -24,7 +22,7 @@ public class UserDto {
         u.setPassword(this.password);
         u.setAddress(this.address);
         u.setDob(this.dob);
-        u.setUserName(this.email);
+        u.setEmail(this.email);
         u.setFirstName(this.firstName);
         u.setLastName(this.lastName);
         u.setGender(this.gender);
@@ -111,5 +109,21 @@ public class UserDto {
 
     public void setMaritalStatus(String maritalStatus) {
         this.maritalStatus = maritalStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", dob=" + dob +
+                ", gender='" + gender + '\'' +
+                ", maritalStatus='" + maritalStatus + '\'' +
+                '}';
     }
 }

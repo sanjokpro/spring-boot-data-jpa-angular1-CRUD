@@ -1,0 +1,64 @@
+<div class="main-content">
+    <nav class="clearfix" id="title-bar">
+        <div style="float: left">
+            <span class="nav_bar">
+                <i class="fa fa-bars" aria-hidden="true" ng-click="toggleClass('#sidebar', 'active')"></i>
+            </span>
+        </div>
+        <!--<div>-->
+        <!--<span><strong> LOGOUT</strong></span>-->
+        <!--</div>-->
+    </nav>
+
+    <!--<nav class="navbar navbar-inverse action-title-bar">-->
+    <!--<div class="container-fluid">-->
+    <!--<div class="navbar-header action-title">-->
+    <!--<h1><strong>{{title}}</strong></h1>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</nav>-->
+    <div class="container">
+        <table ng-table class="table table-bordered table-stripped table-responsive" show-filter="true">
+            <tr ng-repeat="user in allUserList">
+                <td title="'Username'" filter="{ user.userName: 'text'}" sortable="'user.userName'">
+                    <input type="text" class="form-control" ng-model="user.userName" ng-if="user.editing"/>
+                    <span ng-if="!user.editing">{{user.userName}}</span>
+                </td>
+                <td title="'First Name'" filter="{firstName: 'text'}" sortable="'firstName'">
+                    <input type="text" class="form-control" ng-model="user.firstName" ng-if="user.editing"/>
+                    <span ng-if="!user.editing">{{user.firstName}}</span>
+                </td>
+                <td title="'Last Name'" filter="{lastName: 'text'}" sortable="'lastName'">
+                    <input type="text" class="form-control" ng-model="user.lastName" ng-if="user.editing"/>
+                    <span ng-if="!user.editing">{{user.lastName}}</span>
+                </td>
+                <td title="'Email'" filter="{email: 'text'}" sortable="'email'">
+                    <input type="text" class="form-control" ng-model="user.email" ng-if="user.editing"/>
+                    <span ng-if="!user.editing">{{user.email}}</span>
+                </td>
+                <td title="'Address'" filter="{address: 'text'}" sortable="'address'">
+                    <input type="text" class="form-control" ng-model="user.address" ng-if="user.editing"/>
+                    <span ng-if="!user.editing">{{user.address}}</span>
+                </td>
+                <td title="'Action'" style="display: flex;">
+                    <span>
+                        <i title="Delete" color="red" class="fa fa-close  btn-sm btn-danger" aria-hidden="false"
+                           ng-click="removeUser(user)"></i>
+                    </span>
+                    <span>
+                         <i title="Edit" color="blue" class="fa fa-edit btn-sm btn-primary" aria-hidden="true"
+                            ng-click="editUser(user)"></i>
+                    </span>
+                    <span>
+                         <i title="Update" class="fa fa-save btn-sm btn-success" aria-hidden="true"
+                            ng-click="updateUser(user)" ng-if="user.editing"></i>
+                    </span>
+                </td>
+
+
+            </tr>
+        </table>
+
+    </div>
+
+</div>

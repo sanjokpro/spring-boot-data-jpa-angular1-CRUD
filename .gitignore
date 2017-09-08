@@ -57,6 +57,5 @@ overridedb.*
 settings.xml
 target
 transaction-logs
-out/production
-src/main/generated/
-web/
+*/out/production
+
