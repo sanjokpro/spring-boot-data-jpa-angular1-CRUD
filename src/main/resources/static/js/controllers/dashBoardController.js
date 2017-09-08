@@ -18,18 +18,21 @@ angular.module("hrmsDashboard")
         $scope.removeUser = function (param) {
             dashBoardService.removeUser(param).then(
                 function (response) {
-                    if (response)
-                        var existingList = $scope.allUserList;
-                    // $scope.allUserList = [];
-                    angular.forEach($scope.allUserList, function (user) {
-                        if (user.userId == param.userId) {
-                            $scope.allUserList.pop(user);
-                        }
-                    });
-                    console.log("SUCCESS")
+                    if (response) {
+                        angular.forEach($scope.allUserList.data, function (user, index) {
+                            if (user.userId == param.userId) {
+                                // delete $scope.allUserList.data[index];
+                                //$scope.allUserList.data[index] = undefined;
+                                $scope.allUserList.data.splice(index,1);
+                                $scope.msg = "Removed Successfully.";
+                            }
+                        });
+                    } else {
+                        $scope.err = "Unable to remove user.";
+                    }
 
                 }, function () {
-                    console.log("Error!");
+                    console.log(" !  (userId:" + response.userId + ")")
                 });
         };
         //___________________________________________________
@@ -37,8 +40,12 @@ angular.module("hrmsDashboard")
         $scope.userModel = {}
         $scope.addUser = function () {
             dashBoardService.addUser($scope.userModel).then(function (result) {
-                if (result)
-                    console.log("Operation Successful!")
+                if (result) {
+                    $scope.msg = "User Added Successfully!";
+                } else {
+                    $scope.err = "Unable to add user.";
+                }
+
             }, function () {
                 console.log("Oops!");
             });
@@ -48,10 +55,13 @@ angular.module("hrmsDashboard")
         //____________________________________________________
         $scope.allUser = function () {
             dashBoardService.findAllUser().then(function (receivedData) {
-                $scope.allUserList = receivedData.plain();
+                $scope.allUserList = receivedData;
+                $scope.allUserList = new NgTableParams({
+                    sorting: {userName: "desc"}
+                }, {
+                    dataset: $scope.allUserList.plain()
+                });
 
-                // $scope.tableParams = new NgTableParams({}, {
-                //     dataset: receivedData.plain()});
                 console.log("SUCCESS");
             }, function () {
                 console.log("ERROR");
@@ -60,11 +70,11 @@ angular.module("hrmsDashboard")
         };
         //____________________________________________________
         $scope.editUser = function (clickedRowUserObject) {
-            for (i = 0; i < $scope.allUserList.length; i++) {
-                if ($scope.allUserList[i].userId === clickedRowUserObject.userId) {
-                    $scope.allUserList[i].editing = true;
+            for (i = 0; i < $scope.allUserList.data.length; i++) {
+                if ($scope.allUserList.data[i].userId === clickedRowUserObject.userId) {
+                    $scope.allUserList.data[i].editing = true;
                 } else {
-                    $scope.allUserList[i].editing = false;
+                    $scope.allUserList.data[i].editing = false;
                 }
             }
             // angular.forEach($scope.allUserList, function (user, index) {
@@ -78,10 +88,11 @@ angular.module("hrmsDashboard")
         //____________________________________________________
         $scope.updateUser = function (user) {
             dashBoardService.updateUser(user).then(function (response) {
-                for (i = 0; i < $scope.allUserList.length; i++) {
-                    $scope.allUserList[i].editing = null;
+                for (i = 0; i < $scope.allUserList.data.length; i++) {
+                    $scope.allUserList.data[i].editing = null;
                 }
-                console.log("user updated!");
+                $scope.msg = "Removed Successfully.";
+                ("user updated!");
             }, function () {
                 console.log("unable to update user!");
             });
