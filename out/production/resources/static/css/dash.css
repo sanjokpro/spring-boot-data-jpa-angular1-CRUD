@@ -1,17 +1,50 @@
+/*-------------------------------------------
+MOODAL STYLE
+---------------------------------------------*/
+
+.modal {
+    background: none;
+    top: 38%;
+}
+
+.modal-footer, .modal-header {
+    border: none !important;
+}
+
+.modal-header {
+    background:rgba(0, 0, 0, 0.64) !important;
+    color: #ffffff;
+}
+
+.modal-footer {
+    background: #ffffff !important;
+}
+
+.modal-body {
+    background: #ffffff !important;
+}
+
+#error-modal-message {
+    font-size: larger;
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 #title-bar {
     padding: 2%;
     height: 98px;
     color: #319640;
     border-bottom: 2px solid #319640;
-    /*height: 10%;*/
-    /*margin: 1%;*/
-    /*width: 100%;*/
-    /*background: #eaeaea;*/
-    /*color: green;*/
-    /*text-align: center;*/
-    /*font-size: x-large;*/
-    /*font-weight: 900;*/
-    /*/ / border: solid 1 px #319640;*/
 }
 
 footer.page-footer a {

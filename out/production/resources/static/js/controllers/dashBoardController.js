@@ -1,5 +1,6 @@
 angular.module("hrmsDashboard")
     .controller("dashBoardController", function ($scope, $localStorage, $window, dashBoardService, $state, NgTableParams) {
+        console.log("**********dashBoardController*******************");
 
         //____________________________________________________
         $scope.toggleClass = function (targetId, className) {
@@ -23,8 +24,9 @@ angular.module("hrmsDashboard")
                             if (user.userId == param.userId) {
                                 // delete $scope.allUserList.data[index];
                                 //$scope.allUserList.data[index] = undefined;
-                                $scope.allUserList.data.splice(index,1);
+                                $scope.allUserList.data.splice(index, 1);
                                 $scope.msg = "Removed Successfully.";
+                                $('#message-box-modal').modal("show");
                             }
                         });
                     } else {
@@ -39,17 +41,19 @@ angular.module("hrmsDashboard")
 
         $scope.userModel = {}
         $scope.addUser = function () {
-            dashBoardService.addUser($scope.userModel).then(function (result) {
-                if (result) {
-                    $scope.msg = "User Added Successfully!";
-                } else {
-                    $scope.err = "Unable to add user.";
-                }
+            if ($scope.userModel.address && $scope.userModel.password && $scope.userModel.email && $scope.userModel.firstName && $scope.userModel.lastName)
+                dashBoardService.addUser($scope.userModel).then(function (result) {
+                    if (result) {
+                        $scope.msg = "User Added Successfully!";
+                        $('#message-box-modal').modal("show");
+                        $state.go('view');
+                    } else {
+                        $scope.err = "Unable to add user.";
+                    }
 
-            }, function () {
-                console.log("Oops!");
-            });
-
+                }, function () {
+                    console.log("Oops!");
+                });
         };
 
         //____________________________________________________
@@ -62,12 +66,13 @@ angular.module("hrmsDashboard")
                     dataset: $scope.allUserList.plain()
                 });
 
-                console.log("SUCCESS");
+                console.log("data loaded");
             }, function () {
-                console.log("ERROR");
+                console.log("data loading error");
             });
-
         };
+        if ($state.current.name === 'view')
+            $scope.allUser();
         //____________________________________________________
         $scope.editUser = function (clickedRowUserObject) {
             for (i = 0; i < $scope.allUserList.data.length; i++) {
@@ -92,6 +97,7 @@ angular.module("hrmsDashboard")
                     $scope.allUserList.data[i].editing = null;
                 }
                 $scope.msg = "Removed Successfully.";
+                $('#message-box-modal').modal("show");
                 ("user updated!");
             }, function () {
                 console.log("unable to update user!");

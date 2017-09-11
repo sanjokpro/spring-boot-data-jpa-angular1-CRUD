@@ -6,10 +6,13 @@
     <link rel="stylesheet" ; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css">
 
+
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="css/dash.css">
 </head>
 <body ng-app="hrmsDashboard" ng-controller="dashBoardController">
+
+
 <div class="wrapper">
     <nav id="sidebar">
         <div class="sidebar-header">
@@ -20,7 +23,7 @@
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">User</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li><a ui-sref="user">Add User</a></li>
-                    <li><a ui-sref="view()" ng-click="allUser()">View Users</a></li>
+                    <li><a ui-sref="view" ng-click="allUser()">View Users</a></li>
                 </ul>
             </li>
 
@@ -39,7 +42,6 @@
     <div ui-view class="main-content"></div>
 
 
-
 </div>
 <div>
     <footer class="page-footer center-on-small-only blue-grey lighten-5 pt-0">
@@ -53,6 +55,82 @@
         <!--/.Copyright-->
 
     </footer>
+</div>
+
+
+<!-- Processing  modal-->
+<div class="modal" id="spinner-modal"
+     role="dialog" aria-hidden="false" data-backdrop="static">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <span class="glyphicon glyphicon-time">
+                    </span>Please Wait
+                </h4>
+            </div>
+            <div class="modal-body" style="padding: 26%;">
+
+                <div id="loader"></div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Error Modal -->
+<div aria-hidden="false" class="modal fade" id="error-modal" role="dialog" style=" background: none; top: 38%;">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-danger">SORRY !</h4>
+            </div>
+            <div class="modal-body">
+                <p id="error-modal-message">.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Confirm Modal Starts-->
+<div id="confirm-request-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header" id="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Confirm your request!</h4>
+            </div>
+            <div class="modal-footer">
+                <button id="confirm-request-cancel-btn" type="button" class="btn btn-danger" data-dismiss="modal">
+                    Cancel
+                </button>
+                <button id="confirm-request-confirm-btn" type="button" class="btn btn-success">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Confirm Modal Ends -->
+
+<!-- Message box Modal -->
+<div aria-hidden="false" class="modal fade" id="message-box-modal" role="dialog" style=" background: none; top: 38%;">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title " id="message-box-modal-header-test">SUCCESSFUL !</h4>
+            </div>
+            <div class="modal-body">
+                <p id="message-box-modal-message">{{msg}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -71,10 +149,11 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/restangular/1.5.2/restangular.js"></script>
