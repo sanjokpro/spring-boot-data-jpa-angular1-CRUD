@@ -4,7 +4,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
-    <link rel="stylesheet" href="js/MDB_3.4.1/css/mdb.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.css">
+    <!--<link rel="stylesheet" href="MDB_4.1.1/css/mdb.min.css">-->
 
 
     <!-- Our Custom CSS -->
@@ -58,88 +59,89 @@
 </div>
 
 
-<!-- Processing  modal-->
-<div class="modal" id="spinner-modal"
-     role="dialog" aria-hidden="false" data-backdrop="static">
-    <div class="modal-dialog ">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">
-                    <span class="glyphicon glyphicon-time">
-                    </span>Please Wait
-                </h4>
-            </div>
-            <div class="modal-body" style="padding: 26%;">
+<!--&lt;!&ndash; Processing  modal&ndash;&gt;-->
+<!--<div class="modal" id="spinner-modal"-->
+<!--role="dialog" aria-hidden="false" data-backdrop="static">-->
+<!--<div class="modal-dialog ">-->
+<!--<div class="modal-content">-->
+<!--<div class="modal-header">-->
+<!--<h4 class="modal-title">-->
+<!--<span class="glyphicon glyphicon-time">-->
+<!--</span>Please Wait-->
+<!--</h4>-->
+<!--</div>-->
+<!--<div class="modal-body" style="padding: 26%;">-->
 
-                <div id="loader"></div>
+<!--<div id="loader"></div>-->
 
 
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Error Modal -->
-<div aria-hidden="false" class="modal fade" id="error-modal" role="dialog" style=" background: none; top: 38%;">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title text-danger">SORRY !</h4>
-            </div>
-            <div class="modal-body">
-                <p id="error-modal-message">.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Confirm Modal Starts-->
-<div id="confirm-request-modal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header" id="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title">Confirm your request!</h4>
-            </div>
-            <div class="modal-footer">
-                <button id="confirm-request-cancel-btn" type="button" class="btn btn-danger" data-dismiss="modal">
-                    Cancel
-                </button>
-                <button id="confirm-request-confirm-btn" type="button" class="btn btn-success">Confirm</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Confirm Modal Ends -->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash; Error Modal &ndash;&gt;-->
+<!--<div aria-hidden="false" class="modal fade" id="error-modal" role="dialog" style=" background: none; top: 38%;">-->
+<!--<div class="modal-dialog modal-sm">-->
+<!--<div class="modal-content">-->
+<!--<div class="modal-header">-->
+<!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--<h4 class="modal-title text-danger">SORRY !</h4>-->
+<!--</div>-->
+<!--<div class="modal-body">-->
+<!--<p id="error-modal-message">.</p>-->
+<!--</div>-->
+<!--<div class="modal-footer">-->
+<!--<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash; Confirm Modal Starts&ndash;&gt;-->
+<!--<div id="confirm-request-modal" class="modal fade" role="dialog">-->
+<!--<div class="modal-dialog modal-sm" role="document">-->
+<!--<div class="modal-content">-->
+<!--<div class="modal-header" id="modal-header">-->
+<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>-->
+<!--</button>-->
+<!--<h4 class="modal-title">Confirm your request!</h4>-->
+<!--</div>-->
+<!--<div class="modal-footer">-->
+<!--<button id="confirm-request-cancel-btn" type="button" class="btn btn-danger" data-dismiss="modal">-->
+<!--Cancel-->
+<!--</button>-->
+<!--<button id="confirm-request-confirm-btn" type="button" class="btn btn-success">Confirm</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash; Confirm Modal Ends &ndash;&gt;-->
 
-<!-- Message box Modal -->
-<div aria-hidden="false" class="modal fade" id="message-box-modal" role="dialog" style=" background: none; top: 38%;">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title " id="message-box-modal-header-test">SUCCESSFUL !</h4>
-            </div>
-            <div class="modal-body">
-                <p id="message-box-modal-message">{{msg}}</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+<!--&lt;!&ndash; Message box Modal &ndash;&gt;-->
+<!--<div aria-hidden="false" class="modal fade" id="message-box-modal" role="dialog" style=" background: none; top: 38%;">-->
+<!--<div class="modal-dialog modal-sm">-->
+<!--<div class="modal-content">-->
+<!--<div class="modal-header">-->
+<!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--<h4 class="modal-title " id="message-box-modal-header-test">SUCCESSFUL !</h4>-->
+<!--</div>-->
+<!--<div class="modal-body">-->
+<!--<p id="message-box-modal-message">{{msg}}</p>-->
+<!--</div>-->
+<!--<div class="modal-footer">-->
+<!--<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 
 
 <!-- jQuery CDN -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <!-- Bootstrap Js CDN -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>-->
-<!--<script src="js/MDB_3.4.1/js/mdb.min.js"></script>-->
+<script src="MDB_4.1.1/js/popper.min.js"></script>
+<script src="MDB_4.1.1/js/mdb.min.js"></script>
+
 <script src="js/angular-1.6.6/angular.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
@@ -153,6 +155,7 @@
 
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/controllers/dashBoardController.js"></script>
+<script type="text/javascript" src="js/controllers/modalController.js"></script>
 <script type="text/javascript" src="js/Services/dashBoardService.js"></script>
 <script type="text/javascript" src="js/states.js"></script>
 <script type="text/javascript">

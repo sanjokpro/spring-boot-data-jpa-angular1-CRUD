@@ -1,17 +1,12 @@
-<div aria-hidden="false" class="modal" id="message-box-modal" role="dialog"
-     style=" background: none; top: 38%;display: block;">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header" id="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title " id="message-box-modal-header-test">SUCCESSFUL !</h4>
-            </div>
-            <div class="modal-body" id="modal-body">
-                <p id="message-box-modal-message">{{msg}}</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-            </div>
-        </div>
+<div class="modal-content" id="message-box-modal">
+    <div class="modal-header" id="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title " id="message-box-modal-header-test">SUCCESSFUL !</h4>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <p id="message-box-modal-message">{{msg}}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" ng-click="close()">Close</button>
     </div>
 </div>

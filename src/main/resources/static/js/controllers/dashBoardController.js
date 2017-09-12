@@ -116,7 +116,7 @@ angular.module("hrmsDashboard")
                 ariaLabelledBy: 'modal-header',
                 ariaDescribedBy: 'modal-body',
                 templateUrl: 'modals/message-box-modal.html',
-                controller: 'dashBoardController',
+                controller: 'modalController',
                 size: size,
                 backdrop: true
                 // resolve: {
