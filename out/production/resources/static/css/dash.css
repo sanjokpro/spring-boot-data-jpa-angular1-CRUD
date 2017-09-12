@@ -6,6 +6,7 @@ MOODAL STYLE
     background: none;
     top: 38%;
 }
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer  !important; }
 
 .modal-footer, .modal-header {
     border: none !important;

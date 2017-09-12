@@ -1,5 +1,5 @@
 angular.module("hrmsDashboard")
-    .controller("dashBoardController", function ($scope, $localStorage, $window, dashBoardService, $state, NgTableParams) {
+    .controller("dashBoardController", function ($scope, $localStorage, $window, dashBoardService, $state, NgTableParams, $uibModal) {
         console.log("**********dashBoardController*******************");
 
         //____________________________________________________
@@ -26,7 +26,8 @@ angular.module("hrmsDashboard")
                                 //$scope.allUserList.data[index] = undefined;
                                 $scope.allUserList.data.splice(index, 1);
                                 $scope.msg = "Removed Successfully.";
-                                $('#message-box-modal').modal("show");
+                                $scope.showMesssageModal('lg');
+                                // $('#message-box-modal').modal("show");
                             }
                         });
                     } else {
@@ -107,5 +108,29 @@ angular.module("hrmsDashboard")
         //____________________________________________________
         if ($state.$current.data)
             $scope.title = $state.$current.data.title;
+
+        /*----------------------UI-bootstrap-Modals----------------------*/
+        $scope.showMesssageModal = function (size) {
+            var modalInstance = $uibModal.open({
+                animation: false,
+                ariaLabelledBy: 'modal-header',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: 'modals/message-box-modal.html',
+                controller: 'dashBoardController',
+                size: size,
+                backdrop: true
+                // resolve: {
+                //     msg: function () {
+                //         return "resolve message";
+                //     }
+                // }
+
+            }).result.then(function () {
+                console.log("result=true");
+            }, function (res) {
+                console.log(res);
+            });
+            return modalInstance;
+        }
 
     });
