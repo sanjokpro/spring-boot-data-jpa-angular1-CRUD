@@ -2,9 +2,13 @@
 MOODAL STYLE
 ---------------------------------------------*/
 
+.form-control {
+    font-size: inherit !important;
+}
+
 .modal {
     background: none;
-    top: 38%;
+    /*top: 38%;*/
 }
 
 .nav, .pagination, .carousel, .panel-title a {
@@ -16,7 +20,7 @@ MOODAL STYLE
 }
 
 .modal-header {
-    background:rgba(0, 0, 0, 0.64) !important;
+    background: rgba(0, 0, 0, 0.64) !important;
     color: #ffffff;
 }
 
@@ -32,17 +36,6 @@ MOODAL STYLE
     font-size: larger;
     color: #ffffff;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 #title-bar {
     padding: 2%;
@@ -79,8 +72,16 @@ footer.page-footer {
     width: 100%;
 }
 
-.ng-table-pagination {
-    display: none;
+table th {
+    font-size: inherit !important;
+}
+
+table td {
+    font-size: inherit !important;
+}
+
+.btn {
+    font-size: inherit !important;
 }
 
 .btn-default {
@@ -167,6 +168,7 @@ a, a:hover, a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
+    min-height: 700px;
     background: #319640;
     color: #fff;
 / / transition: all 0.6 s cubic-bezier(0.945, 0.020, 0.270, 0.665);

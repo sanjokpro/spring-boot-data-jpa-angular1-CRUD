@@ -31,9 +31,12 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
     private String address;
+    @Transient
     @Temporal(TemporalType.DATE)
     private Date dob;
+    @Transient
     private String gender;
+    @Transient
     private String maritalStatus;
 
 

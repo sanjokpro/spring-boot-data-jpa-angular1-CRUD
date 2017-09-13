@@ -1,5 +1,6 @@
 angular.module("hrmsDashboard")
-    .controller("modalController", function ($scope, $uibModalInstance) {
+    .controller("modalController", function ($scope, $uibModalInstance, msg) {
+        $scope.msg = msg;
         $scope.dismiss = function () {
             $uibModalInstance.dismiss('cancel');
         }

@@ -26,8 +26,7 @@ angular.module("hrmsDashboard")
                                 //$scope.allUserList.data[index] = undefined;
                                 $scope.allUserList.data.splice(index, 1);
                                 $scope.msg = "Removed Successfully.";
-                                $scope.showMesssageModal('lg');
-                                // $('#message-box-modal').modal("show");
+                                $scope.showMesssageModal('sm');
                             }
                         });
                     } else {
@@ -42,11 +41,11 @@ angular.module("hrmsDashboard")
 
         $scope.userModel = {}
         $scope.addUser = function () {
-            if ($scope.userModel.address && $scope.userModel.password && $scope.userModel.email && $scope.userModel.firstName && $scope.userModel.lastName)
+            if ($scope.userModel.address && $scope.userModel.password && $scope.userModel.email && $scope.userModel.firstName && $scope.userModel.lastName&&$scope.userModel.userName)
                 dashBoardService.addUser($scope.userModel).then(function (result) {
                     if (result) {
                         $scope.msg = "User Added Successfully!";
-                        $('#message-box-modal').modal("show");
+                        $scope.showMesssageModal('sm');
                         $state.go('view');
                     } else {
                         $scope.err = "Unable to add user.";
@@ -97,8 +96,8 @@ angular.module("hrmsDashboard")
                 for (i = 0; i < $scope.allUserList.data.length; i++) {
                     $scope.allUserList.data[i].editing = null;
                 }
-                $scope.msg = "Removed Successfully.";
-                $('#message-box-modal').modal("show");
+                $scope.msg = "Updated Successfully.";
+                $scope.showMesssageModal('sm');
                 ("user updated!");
             }, function () {
                 console.log("unable to update user!");
@@ -118,12 +117,12 @@ angular.module("hrmsDashboard")
                 templateUrl: 'modals/message-box-modal.html',
                 controller: 'modalController',
                 size: size,
-                backdrop: true
-                // resolve: {
-                //     msg: function () {
-                //         return "resolve message";
-                //     }
-                // }
+                backdrop: true,
+                resolve: {
+                    msg: function () {
+                        return $scope.msg;
+                    }
+                }
 
             }).result.then(function () {
                 console.log("result=true");
