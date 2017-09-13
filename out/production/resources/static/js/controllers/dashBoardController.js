@@ -41,7 +41,7 @@ angular.module("hrmsDashboard")
 
         $scope.userModel = {}
         $scope.addUser = function () {
-            if ($scope.userModel.address && $scope.userModel.password && $scope.userModel.email && $scope.userModel.firstName && $scope.userModel.lastName&&$scope.userModel.userName)
+            if ($scope.userModel.address && $scope.userModel.password && $scope.userModel.email && $scope.userModel.firstName && $scope.userModel.lastName && $scope.userModel.userName)
                 dashBoardService.addUser($scope.userModel).then(function (result) {
                     if (result) {
                         $scope.msg = "User Added Successfully!";

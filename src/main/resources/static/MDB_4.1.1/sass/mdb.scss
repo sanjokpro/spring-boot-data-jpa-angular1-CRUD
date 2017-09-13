@@ -28,10 +28,8 @@
 @charset "UTF-8";
 
 // Bootstrap //
-
 @import "mdb/free/data/functions";
 @import "mdb/free/data/variables-b4";
-
 // MDB Framework //
 @import "mdb/free/data/prefixer";
 @import "mdb/free/data/mixins";
@@ -60,6 +58,5 @@
 @import "mdb/free/footer";
 @import "mdb/free/list-group";
 @import "mdb/free/tables";
-
 // Custom Sass
 @import "mdb/custom";

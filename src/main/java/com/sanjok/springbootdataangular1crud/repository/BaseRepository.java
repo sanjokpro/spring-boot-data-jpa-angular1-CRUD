@@ -8,10 +8,13 @@ import java.util.List;
 import java.util.Optional;
 
 @NoRepositoryBean
-public interface BaseRepository<Entity,ID extends  Serializable>  extends Repository<Entity,ID> {
+public interface BaseRepository<Entity, ID extends Serializable> extends Repository<Entity, ID> {
     void delete(Entity deleted);
-     List<Entity> findAll();
+
+    List<Entity> findAll();
+
     Optional<Entity> findOne(ID id);
-     Entity save(Entity saved);
+
+    Entity save(Entity saved);
 
 }

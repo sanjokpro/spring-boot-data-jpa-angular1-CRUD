@@ -10,7 +10,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath ("gradle.plugin.com.boxfuse.client:client:1.29.0.1396")
+        classpath("gradle.plugin.com.boxfuse.client:client:1.29.0.1396")
     }
 }
 

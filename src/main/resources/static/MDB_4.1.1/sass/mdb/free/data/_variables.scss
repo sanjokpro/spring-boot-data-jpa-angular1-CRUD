@@ -13,27 +13,26 @@ $tabs-margin-y: -20px;
 $pills-padding: 0.6rem;
 
 // Spacers
-$spacer:                     1rem !default;
-$spacer-x:                   $spacer !default;
-$spacer-y:                   $spacer !default;
+$spacer: 1rem !default;
+$spacer-x: $spacer !default;
+$spacer-y: $spacer !default;
 $spacers: (
-  0: 0,
-  1: ($spacer * .25),
-  2: ($spacer * .5),
-  3: $spacer,
-  4: ($spacer * 1.5),
-  5: ($spacer * 3),
-  6: ($spacer * 5)
+        0: 0,
+        1: ($spacer * .25),
+        2: ($spacer * .5),
+        3: $spacer,
+        4: ($spacer * 1.5),
+        5: ($spacer * 3),
+        6: ($spacer * 5)
 ) !default;
-
 
 // Extreme Padding
 $extreme-padding: (
-	"xs": 0,
-	"sm": 5%,
-	"md": 10%,
-	"lg": 15%,
-	"xl": 20%
+        "xs": 0,
+        "sm": 5%,
+        "md": 10%,
+        "lg": 15%,
+        "xl": 20%
 );
 
 // Navbar
@@ -92,12 +91,12 @@ $input-font-size: 1rem;
 $form-control-margin: 0.5rem;
 $form-control-border-color: $primary-color;
 // TODO
-$input-disabled-color: rgba(0,0,0, .46) !default;
+$input-disabled-color: rgba(0, 0, 0, .46) !default;
 $input-disabled-solid-color: $primary-color !default;
 
 // Radio Buttons
 $radio-fill-color: $primary-color !default;
-$radio-empty-color: #5a5a5a !default; 
+$radio-empty-color: #5a5a5a !default;
 
 // Dropdown
 $dropdown-bg-color: #fff !default;
@@ -111,7 +110,7 @@ $input-error-color: $error-color !default;
 $input-success-color: $success-color !default;
 $input-focus-color: $primary-color !default;
 $label-font-size: .8rem !default;
-$input-disabled-color: rgba(0,0,0, .46) !default;
+$input-disabled-color: rgba(0, 0, 0, .46) !default;
 // $input-disabled-solid-color: $primary-color !default; //trochę dziwny kolor był tutaj wpisany dlatego zamieniłem
 $input-disabled-solid-color: #BDBDBD;
 
@@ -136,44 +135,42 @@ $image-path: '../img/';
 
 // Reponsive Headings
 $responsive-headings: (
-  "xs": (
-      "h1": 150%,
-      "h2": 145%,
-      "h3": 135%,
-      "h4": 135%,
-      "h5": 135%
-  ),
-  "sm": (
-      "h1": 170%,
-      "h2": 140%,
-      "h3": 125%,
-      "h4": 125%,
-      "h5": 125%
-  ),
-  "md": (
-      "h1": 200%,
-      "h2": 170%,
-      "h3": 140%,
-      "h4": 125%,
-      "h5": 125%
-  ),
-  "lg": (
-      "h1": 200%,
-      "h2": 170%,
-      "h3": 140%,
-      "h4": 125%,
-      "h5": 125%
-  ),
-  "xl": (
-      "h1": 250%,
-      "h2": 200%,
-      "h3": 170%,
-      "h4": 140%,
-      "h5": 125%
-  ),
+        "xs": (
+                "h1": 150%,
+                "h2": 145%,
+                "h3": 135%,
+                "h4": 135%,
+                "h5": 135%
+        ),
+        "sm": (
+                "h1": 170%,
+                "h2": 140%,
+                "h3": 125%,
+                "h4": 125%,
+                "h5": 125%
+        ),
+        "md": (
+                "h1": 200%,
+                "h2": 170%,
+                "h3": 140%,
+                "h4": 125%,
+                "h5": 125%
+        ),
+        "lg": (
+                "h1": 200%,
+                "h2": 170%,
+                "h3": 140%,
+                "h4": 125%,
+                "h5": 125%
+        ),
+        "xl": (
+                "h1": 250%,
+                "h2": 200%,
+                "h3": 170%,
+                "h4": 140%,
+                "h5": 125%
+        ),
 );
-
-
 
 /*** Global ***/
 // Media Query Ranges

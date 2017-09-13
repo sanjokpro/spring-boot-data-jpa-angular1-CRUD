@@ -1,7 +1,7 @@
 angular.module("hrmsDashboard")
     .config(function ($stateProvider, $urlRouterProvider) {
 
-         //$urlRouterProvider.otherwise('user');
+        //$urlRouterProvider.otherwise('user');
         $urlRouterProvider.otherwise('/user/view');
 
         $stateProvider
