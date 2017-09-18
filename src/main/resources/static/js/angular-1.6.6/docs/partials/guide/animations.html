@@ -303,13 +303,13 @@
     have finished. Then, it waits for the currently running <a href="api/ng/type/$rootScope.Scope#$digest">$digest</a>
     and one more after that, to finish. This ensures that the whole app has been compiled fully before
     animations are attempted.</p>
-<p>If you do want your animations to play when the app bootstraps, you can enable animations globally
+<p>If you do want your animations to play when the app bootstraps, you can enabled animations globally
     in your main module&#39;s <a href="api/ng/type/angular.Module#run">run</a> function:</p>
 <pre><code class="lang-js">myModule.run(function($animate) {
   $animate.enabled(true);
 });
 </code></pre>
-<h2 id="how-to-selectively-enable-disable-and-skip-animations">How to (selectively) enable, disable and skip
+<h2 id="how-to-selectively-enabled-disable-and-skip-animations">How to (selectively) enabled, disable and skip
     animations</h2>
 <p>There are several different ways to disable animations, both globally and for specific animations.
     Disabling specific animations can help to speed up the render performance, for example for large
@@ -364,16 +364,16 @@
 <p>The <code>classNameFilter</code> approach generally gives a big speed boost compared to other strategies,
     because the matching is done before other animation disabling strategies are checked. However, that
     also means it is not possible to override class name matching with the two following strategies.
-    It&#39;s of course still possible to enable / disable animations by changing an element&#39;s class name at
+    It&#39;s of course still possible to enabled / disable animations by changing an element&#39;s class name at
     runtime.</p>
 <h3 id="at-runtime-link-ng-animate-enabled-animate-enabled-">At runtime: <a href="api/ng/service/$animate#enabled">$animate.enabled()</a>
 </h3>
-<p>This function can be used to enable / disable animations in two different ways:</p>
+<p>This function can be used to enabled / disable animations in two different ways:</p>
 <p>With a single <code>boolean</code> argument, it enables / disables animations globally:
     <code>$animate.enabled(false)</code> disables all animations in your app.</p>
 <p>When the first argument is a native DOM or jqLite/jQuery element, the function enables / disables
     animations on this element <em>and all its children</em>: <code>$animate.enabled(myElement, false)</code>. You can
-    still use it to re-enable animations for a child element, even if you have disabled them on a parent
+    still use it to re-enabled animations for a child element, even if you have disabled them on a parent
     element. And compared to the <code>classNameFilter</code>, you can change the animation status at runtime
     instead of during the config phase.</p>
 <p>Note however that the <code>$animate.enabled()</code> state for individual elements does not overwrite
@@ -462,9 +462,9 @@ my-class.ng-animate {
 <p>If you do have CSS transitions / animations defined for the animation events, make sure they have a
     higher priority than any styles that are not related to <code>ngAnimate</code>.</p>
 <p>You can also use one of the other
-    <a href="guide/animations#how-to-selectively-enable-disable-and-skip-animations">strategies to disable
+    <a href="guide/animations#how-to-selectively-enabled-disable-and-skip-animations">strategies to disable
         animations</a>.</p>
-<h2 id="enable-animations-outside-of-the-application-dom-tree-link-ng-animate-pin-animate-pin-">Enable animations
+<h2 id="enabled-animations-outside-of-the-application-dom-tree-link-ng-animate-pin-animate-pin-">Enable animations
     outside of the application DOM tree: <a href="api/ng/service/$animate#pin">$animate.pin()</a></h2>
 <p>Before animating, <code>ngAnimate</code> checks if the animated element is inside the application DOM tree. If
     not, no animation is run. Usually, this is not a problem since most apps use the <code>html</code> or

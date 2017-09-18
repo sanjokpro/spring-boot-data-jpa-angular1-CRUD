@@ -7,17 +7,24 @@ package com.sanjok.springbootdataangular1crud.entity;
  */
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author esewa
  */
 @Entity
 @Table(name = "users")
+
 public class User implements Serializable {
-    @Version
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +38,12 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
     private String address;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable
+
+    private List<Role> roles = new ArrayList<>();
+
     @Transient
     @Temporal(TemporalType.DATE)
     private Date dob;
@@ -38,10 +51,27 @@ public class User implements Serializable {
     private String gender;
     @Transient
     private String maritalStatus;
-
+    private boolean enabled = true;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
+    }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                ", dob=" + dob +
+                ", gender='" + gender + '\'' +
+                ", maritalStatus='" + maritalStatus + '\'' +
+                '}';
     }
 
     public Long getUserId() {
@@ -100,6 +130,14 @@ public class User implements Serializable {
         this.address = address;
     }
 
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
     public Date getDob() {
         return dob;
     }
@@ -124,19 +162,11 @@ public class User implements Serializable {
         this.maritalStatus = maritalStatus;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", address='" + address + '\'' +
-                ", dob=" + dob +
-                ", gender='" + gender + '\'' +
-                ", maritalStatus='" + maritalStatus + '\'' +
-                '}';
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

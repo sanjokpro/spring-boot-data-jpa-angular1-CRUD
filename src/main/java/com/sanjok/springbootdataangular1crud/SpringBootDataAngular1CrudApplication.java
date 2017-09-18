@@ -1,6 +1,7 @@
 package com.sanjok.springbootdataangular1crud;
 
 import com.sanjok.springbootdataangular1crud.repository.UserRepository;
+import com.sanjok.springbootdataangular1crud.service.security.SpringSecurityConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -10,7 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-@Import({JPAConfig.class})
+@Import({JPAConfig.class, SpringSecurityConfig.class})
 
 public class SpringBootDataAngular1CrudApplication implements CommandLineRunner {
     private static final Logger log = LoggerFactory.getLogger(SpringBootDataAngular1CrudApplication.class);

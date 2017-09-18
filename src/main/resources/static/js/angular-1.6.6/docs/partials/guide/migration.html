@@ -455,7 +455,7 @@ $scope.myCustomObject = {a: 1, b: 2, toString: function() { return &#39;a+b&#39;
 })
 </code></pre>
 <p><strong>Note:</strong>
-    This will re-enable the feature for the whole application, so only do it if you are in control of
+    This will re-enabled the feature for the whole application, so only do it if you are in control of
     the whole application. If you are writing a library, you need to change your code as shown above.
     Furthermore, if your library also targets versions before 1.5 (which do not support the <code>$onInit()</code>
     lifecycle hook), you may need to manually call <code>$onInit()</code> from your constructor:</p>
@@ -1340,7 +1340,7 @@ Foo.get({id: 42, bar: &#39;baz&#39;, toString: &#39;hmm&#39;});
         by default</strong>.
     This means that on touch-based devices, users might now experience a 300ms delay before a click
     event is fired.</p>
-<p>If you rely on this directive, you can still enable it using
+<p>If you rely on this directive, you can still enabled it using
     <code>$touchProvider.ngClickOverrideEnabled()</code>:</p>
 <pre><code class="lang-js">angular.module(&#39;myApp&#39;).config(function($touchProvider) {
   $touchProvider.ngClickOverrideEnabled(true);
@@ -1803,7 +1803,7 @@ angular.module(&#39;myApp&#39;, []).config(function($sceDelegateProvider) {
   // ...
 }]);
 </code></pre>
-<p>Although it&#39;s not recommended, you can re-enable the old behavior like this:</p>
+<p>Although it&#39;s not recommended, you can re-enabled the old behavior like this:</p>
 <pre><code class="lang-javascript">angular.module(&#39;myModule&#39;).config([&#39;$controllerProvider&#39;, function($controllerProvider) {
   // this option might be handy for migrating old apps, but please don&#39;t use it
   // in new ones!
@@ -2510,7 +2510,7 @@ HTML: &lt;div ng-click=&quot;foo()&quot;&gt;
 </code></pre>
 <p>See <a href="https://github.com/angular/angular.js/commit/39841f2ec9b17b3b2920fd1eb548d444251f4f56">39841f2e</a>.</p>
 <h3 id="directives-cannot-end-with-start-or-end">Directives cannot end with -start or -end</h3>
-<p>This change was necessary to enable multi-element directives. The best fix is to rename existing
+<p>This change was necessary to enabled multi-element directives. The best fix is to rename existing
     directives so that they don&#39;t end with these suffixes.</p>
 <p>See <a href="https://github.com/angular/angular.js/commit/e46100f7097d9a8f174bdb9e15d4c6098395c3f2">e46100f7</a>.</p>
 <h3 id="in-q-promise-always-has-been-renamed-promise-finally">In $q, promise.always has been renamed

@@ -61,7 +61,7 @@ angular.module("hrmsDashboard")
             dashBoardService.findAllUser().then(function (receivedData) {
                 $scope.allUserList = receivedData;
                 $scope.allUserList = new NgTableParams({
-                    sorting: {userName: "desc"}
+                    sorting: {userName: "asc"}
                 }, {
                     dataset: $scope.allUserList.plain()
                 });

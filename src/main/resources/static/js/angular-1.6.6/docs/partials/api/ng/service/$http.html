@@ -215,7 +215,7 @@ $http({
 });
 </code></pre>
     <h2 id="caching">Caching</h2>
-    <p><a href="api/ng/service/$http"><code>$http</code></a> responses are not cached by default. To enable caching, you
+    <p><a href="api/ng/service/$http"><code>$http</code></a> responses are not cached by default. To enabled caching, you
         must
         set the config.cache value or the default cache value to TRUE or to a cache object (created
         with <a href="api/ng/service/$cacheFactory"><code>$cacheFactory</code></a>). If defined, the value of
@@ -485,7 +485,7 @@ $httpProvider.interceptors.push(function($q, dependency1, dependency2) {
                         </li>
                         <li><strong>cache</strong> – <code>{boolean|Object}</code> – A boolean value or object created
                             with
-                            <a href="api/ng/service/$cacheFactory"><code>$cacheFactory</code></a> to enable or disable
+                            <a href="api/ng/service/$cacheFactory"><code>$cacheFactory</code></a> to enabled or disable
                             caching of the HTTP response.
                             See <a href="api/ng/service/$http#caching">$http Caching</a> for more information.
                         </li>

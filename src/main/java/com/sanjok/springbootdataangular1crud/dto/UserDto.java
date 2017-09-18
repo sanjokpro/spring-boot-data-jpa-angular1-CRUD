@@ -15,6 +15,7 @@ public class UserDto {
     private Date dob;
     private String gender;
     private String maritalStatus;
+    private boolean enabled;
 
     public User toUser() {
         User u = new User();
@@ -125,5 +126,9 @@ public class UserDto {
                 ", gender='" + gender + '\'' +
                 ", maritalStatus='" + maritalStatus + '\'' +
                 '}';
+    }
+
+    public boolean getEnabled() {
+        return enabled;
     }
 }
