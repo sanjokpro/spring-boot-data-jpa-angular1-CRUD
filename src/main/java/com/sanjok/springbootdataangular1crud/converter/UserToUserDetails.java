@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Collection;
 
-@Component
+@Component("userToUserDetails")
 public class UserToUserDetails implements Converter<User, UserDetails> {
     @Override
     public UserDetails convert(User source) {

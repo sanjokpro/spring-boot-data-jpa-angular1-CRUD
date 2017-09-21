@@ -6,14 +6,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.sanjok.springbootdataangular1crud"})
 @Import({JPAConfig.class, SpringSecurityConfig.class})
+//@Import({JPAConfig.class})
 
-public class SpringBootDataAngular1CrudApplication implements CommandLineRunner {
+public class SpringBootDataAngular1CrudApplication  {
     private static final Logger log = LoggerFactory.getLogger(SpringBootDataAngular1CrudApplication.class);
 
     public static void main(String[] args) {
@@ -23,10 +28,10 @@ public class SpringBootDataAngular1CrudApplication implements CommandLineRunner 
         UserRepository userRepository = ctx.getBean(UserRepository.class);
     }
 
-    @Override
-    public void run(String... args) throws Exception {
-        System.out.println("===============[SpringDataAngularCRUD] Started Successfully!=======================");
-    }
+//    @Override
+//    public void run(String... args) throws Exception {
+//        System.out.println("===============[SpringDataAngularCRUD] Started Successfully!=======================");
+//    }
 /*
     @Bean
     public CommandLineRunner demo(UserRepository userRepository) {

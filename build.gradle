@@ -58,5 +58,8 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-tomcat')
 
     compile('org.springframework.boot:spring-boot-starter-security')
+    compile group: 'org.jasypt', name: 'jasypt-springsecurity3', version: '1.9.2'
+
+    runtime group: 'org.jasypt', name: 'jasypt', version: '1.9.2'
 
 }

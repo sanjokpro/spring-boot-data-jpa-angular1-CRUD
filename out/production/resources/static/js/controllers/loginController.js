@@ -13,9 +13,8 @@ angular.module('hrmsLogin')
                 loginService.userLogin(params).then(function (result) {
                     console.log("login service returns:" + result);
                     $scope.user = result;
-                    if (result)//to prevent error when result is undefined
+                    if (result.has)//to prevent error when result is undefined
                         if (result.username === params.username && result.password === params.password) {
-                            console.log("Role is admin");
                             $window.location.href = '../dashBoard.html';
                         } else {
                             $scope.incorrect = true;

@@ -20,6 +20,8 @@ public class AppController {
         return "To Login POST[/login]";
     }
 
+    //=======================/login [POST]=would make sense before enabaling role based Security========
+/*
     @RequestMapping(method = RequestMethod.POST, value = "/login")
     public @ResponseBody
     User login(@RequestBody UserDto userDto) {
@@ -28,7 +30,9 @@ public class AppController {
         user.setUserName(userDto.getUserName());
         return userService.findUserByUserNameAndPassword(user);
     }
+    */
 
+    //=========================================================================================
     @RequestMapping(method = RequestMethod.POST, value = "/user/add")
     public @ResponseBody
     User addUser(@RequestBody UserDto userDto) {

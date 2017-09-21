@@ -1,5 +1,6 @@
 package com.sanjok.springbootdataangular1crud;
 
+import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
@@ -74,6 +75,11 @@ public class JPAConfig {
 //        properties.setProperty("hibernate.ejb.naming_strategy",environment.getProperty("org.hibernate.cfg.ImprovedNamingStrategy"));
         // hibernateProperties.setProperty("hibernate.globally_quoted_identifiers", "true");
         return properties;
+    }
+    @Bean
+    public StrongPasswordEncryptor strongEncryptor(){
+        StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
+        return encryptor;
     }
 }
 
