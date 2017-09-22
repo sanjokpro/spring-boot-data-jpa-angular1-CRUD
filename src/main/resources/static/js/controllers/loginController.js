@@ -1,5 +1,5 @@
 angular.module('hrmsLogin')
-    .controller('loginController', function ($scope, $localStorage, $sessionStorage, $window, loginService) {
+    .controller('loginController', function ($scope, $localStorage, $sessionStorage, $window, loginService, $http, $httpParamSerializerJQLike) {
         $scope.user = {};
         $scope.user = $localStorage.user || 'Unknown User';
 
@@ -8,24 +8,20 @@ angular.module('hrmsLogin')
         }, true);
 
         $scope.login = function () {
-            var params = {userName: $scope.username, password: $scope.password};
-            if (params.userName && params.password) {
+            var params = {username: $scope.username, password: $scope.password};
+            if (params.username && params.password) {
                 loginService.userLogin(params).then(function (result) {
                     console.log("login service returns:" + result);
                     $scope.user = result;
-                    if (result.has)//to prevent error when result is undefined
-                        if (result.username === params.username && result.password === params.password) {
-                            $window.location.href = '../dashBoard.html';
-                        } else {
-                            $scope.incorrect = true;
-                            console.log("role is user");
-                        }
+                    if (result.status == "200")//to prevent error when result is undefined
+                        $window.location.href = '../dashBoard.html';
                 }, function () {
+                    $scope.incorrect = true;
                     console.log("error");
                 });
             }
 
 
-            console.log($scope.user);
+            console.log("current user [" + $scope.user.username + "/" + $scope.user + "]");
         }
     });
