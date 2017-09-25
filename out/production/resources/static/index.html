@@ -9,24 +9,34 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <!-- Custom styles for this template -->
     <link href="css/login.css" rel="stylesheet">
+    <link rel="stylesheet" href="MDB_4.1.1/css/mdb.min.css">
 
 </head>
 <body ng-app="hrmsLogin">
+<style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+    }
+</style>
 <div class="container" ng-controller="loginController">
-    <form class="form-signin">
+    <form class="form-signin" name="loginForm">
         <h2 class="form-signin-heading">Log in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input ng-model="username" type="text" id="inputEmail" class="form-control" placeholder="Username" required
-               autofocus>
+               autofocus name="username">
+        <span ng-show="loginForm.username.$invalid &&loginForm.username.$touched" ng-cloak
+              class="btn-danger">Please enter valid username!</span>
         <label for="inputPassword" class="sr-only">Password</label>
         <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password"
-               required>
+               required name="password">
+        <span ng-show="loginForm.password.$invalid &&loginForm.password.$touched" ng-cloak
+              class="btn-danger">Please enter valid password!</span>
         <div class="checkbox">
             <label>
-                <input type="checkbox" value="remember-me"> Remember me
+                <!--<input type="checkbox" value="remember-me"> Remember me-->
             </label>
         </div>
-        <div class="alert alert-danger" ng-if="!user">
+        <div class="alert alert-danger" ng-if="incorrect" ng-cloak>
             <label>Bad Credentials !</label>
         </div>
         <button class="btn btn-lg btn-success btn-block" type="submit" ng-click="login()">Sign in</button>
@@ -36,7 +46,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-
+<script src="MDB_4.1.1/js/popper.min.js"></script>
 <script src="js/angular-1.6.6/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/restangular/1.5.2/restangular.js"></script>

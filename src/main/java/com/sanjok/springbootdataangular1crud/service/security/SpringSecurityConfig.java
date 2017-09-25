@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -49,7 +50,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider(final UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
+        //daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
         daoAuthenticationProvider.setUserDetailsService(userDetailsService);
         return daoAuthenticationProvider;
     }
@@ -63,12 +64,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.csrf().disable()
+        http //.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/", "/user/all", "/login", "/index.html", "/dashBoard.html").permitAll()
-                .antMatchers("/admin/**").hasAnyRole("ROLE_ADMIN")
-                .antMatchers("/user/**").hasAnyRole("ROLE_USER","ROLE_ADMIN")
-                .antMatchers("/user/add").hasAnyRole("ROLE_ADMIN")
+                // .antMatchers("/admin/**").hasAnyRole("ADMIN")
+                //  .antMatchers("/user/**").hasAuthority("ROLE_ADMIN")
+                // .antMatchers("/user/add").hasAnyRole("ROLE_ADMIN")
 
 
                 .anyRequest().authenticated()
@@ -82,7 +83,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().successHandler(restAuthenticationSuccessHandler).failureHandler(restAuthenticationFailureHandler);
 
 
-        // .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+        http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 
 
     }

@@ -29,7 +29,23 @@ angular.module("hrmsLogin")
                     defer.reject("Failure");
                 })
                 return defer.promise;
+            },
+
+
+            getCurrentUSer: function () {
+                var defer = $q.defer();
+                var user = Restangular.all('currentUser');
+                user.get('').then(
+                    function (response) {
+                        defer.resolve(response);
+                    },
+                    function () {
+                        defer.reject("Failure");
+                    }
+                );
+                return defer.promise;
             }
+
         }
 
     });

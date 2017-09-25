@@ -12,16 +12,24 @@ angular.module('hrmsLogin')
             if (params.username && params.password) {
                 loginService.userLogin(params).then(function (result) {
                     console.log("login service returns:" + result);
-                    $scope.user = result;
                     if (result.status == "200")//to prevent error when result is undefined
-                        $window.location.href = '../dashBoard.html';
+                        $scope.getCurrentUser();
+                        // $window.location.href = '../dashBoard.html';
                 }, function () {
                     $scope.incorrect = true;
                     console.log("error");
                 });
             }
-
-
             console.log("current user [" + $scope.user.username + "/" + $scope.user + "]");
+        }
+        $scope.getCurrentUser = function () {
+            loginService.getCurrentUSer().then(
+                function (response) {
+                    $scope.user=response;
+                    $window.location.href = '../dashBoard.html';
+                },
+                function () {
+                    console.log("unable to retrive current user");
+                });
         }
     });

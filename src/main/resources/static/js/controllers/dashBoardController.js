@@ -34,7 +34,7 @@ angular.module("hrmsDashboard")
                     }
 
                 }, function () {
-                    console.log(" !  (userId:" + response.userId + ")")
+                    console.log("Unable to delete")
                 });
         };
         //___________________________________________________

@@ -5,6 +5,8 @@ import com.sanjok.springbootdataangular1crud.entity.User;
 import com.sanjok.springbootdataangular1crud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,6 +41,7 @@ public class AppController {
         return userService.insert(userDto.toUser());
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(method = RequestMethod.DELETE, value = "/user/remove/{id}")
     public @ResponseBody
     User removeUser(@PathVariable String id) {
@@ -53,12 +56,18 @@ public class AppController {
         return new User();
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/currentUser")
+    public User getCurrentUser(Authentication authentication) {
+        return userService.findUserByUsername(authentication.getName());
+    }
+
     @RequestMapping(method = RequestMethod.GET, value = "/user/all")
     public @ResponseBody
     List<User> getAllUser() {
         return userService.findAll();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(method = RequestMethod.PUT, value = "/user/update")
     public User updateUser(@RequestBody UserDto user) {
         try {
