@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
@@ -64,7 +65,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http //.csrf().disable()
+        http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/", "/user/all", "/login", "/index.html", "/dashBoard.html").permitAll()
                 // .antMatchers("/admin/**").hasAnyRole("ADMIN")
@@ -75,7 +76,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .antMatchers("/resources/**").hasAnyAuthority().anyRequest().permitAll()
                 .and()
-                .formLogin().loginProcessingUrl("/login")
+                .formLogin().loginProcessingUrl("/api/login")
+                .and().logout().logoutUrl("/api/logout").logoutSuccessHandler(new SimpleUrlLogoutSuccessHandler())
                 .and().authenticationProvider(daoAuthenticationProvider)
                 .logout().permitAll();
         http.headers().frameOptions().disable();
@@ -84,7 +86,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
         http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
-
+        //http.csrf().disable();
 
     }
 

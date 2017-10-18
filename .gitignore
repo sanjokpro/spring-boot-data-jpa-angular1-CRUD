@@ -15,14 +15,13 @@
 *.iws
 *.iml
 *.ipr
-
+/out/
 *.jar
 *.sw?
 *~
 
 ### NetBeans ###
 nbproject/private/
-build/
 nbbuild/
 dist/
 nbdist/
@@ -51,12 +50,19 @@ build.log
 dependency-reduced-pom.xml
 dump.rdb
 interpolated*.xml
-lib/
+/lib/
 manifest.yml
 overridedb.*
 settings.xml
 target
 transaction-logs
 /out
+
+#-----javascript-tools------
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
 
 

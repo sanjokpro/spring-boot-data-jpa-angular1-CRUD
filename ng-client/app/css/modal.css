@@ -1,0 +1,21 @@
+.modal-footer, .modal-header {
+  border: none !important;
+}
+
+.modal-header {
+  background: rgba(0, 0, 0, 0.64) !important;
+  color: #ffffff;
+}
+
+.modal-footer {
+  background: #ffffff !important;
+}
+
+.modal-body {
+  background: #ffffff !important;
+}
+
+#error-modal-message {
+  font-size: larger;
+  color: #ffffff;
+}

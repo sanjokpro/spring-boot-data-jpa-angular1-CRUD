@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+    <title>Signin Page</title>
+    <!-- Bootstrap core CSS -->
+    <!--<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">-->
+    <!-- Custom styles for this template -->
+    <link href="assets/css/login.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="../node_modules/mdbootstrap/css/mdb.min.css">-->
+
+</head>
+<body ng-app="hrmsLogin">
+<style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+    }
+</style>
+<div class="container" ng-controller="loginController">
+    <form class="form-signin" name="loginForm">
+        <h2 class="form-signin-heading">Log in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input ng-model="username" type="text" id="inputEmail" class="form-control" placeholder="Username" required
+               autofocus name="username">
+        <span ng-show="loginForm.username.$invalid &&loginForm.username.$touched" ng-cloak
+              class="btn-danger">Please enter valid username!</span>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password"
+               required name="password">
+        <span ng-show="loginForm.password.$invalid &&loginForm.password.$touched" ng-cloak
+              class="btn-danger">Please enter valid password!</span>
+        <div class="checkbox">
+            <label>
+                <!--<input type="checkbox" value="remember-me"> Remember me-->
+            </label>
+        </div>
+        <div class="alert alert-danger" ng-if="incorrect" ng-cloak>
+            <label>Bad Credentials !</label>
+        </div>
+        <button class="btn btn-lg btn-success btn-block" type="submit" ng-click="login()">Sign in</button>
+    </form>
+</div>
+
+<!--<script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>-->
+<!--
+
+<script src="../node_modules/mdbootstrap/js/mdb.min.js"></script>
+<script src="../node_modules/angular/angular.min.js"></script>
+<script src="../node_modules/lodash/lodash.min.js"></script>
+<script src="../node_modules/restangular/dist/restangular.min.js"></script>
+<script src="../node_modules/ngstorage/ngStorage.min.js"></script>
+-->
+<script src="assets/script/app.js"></script>
+<script src="assets/script/controllers/loginController.js"></script>
+<script src="assets/script/Services/loginService.js"></script>
+</body>
+</html>
