@@ -1,5 +1,5 @@
 angular.module("hrmsDashboard")
-  .controller("dashBoardController", function ($scope, $localStorage, $window, dashBoardService, $state, NgTableParams, $uibModal) {
+  .controller("dashBoardController", function ($scope, $localStorage, $window, dashboardService, $state, NgTableParams, $uibModal) {
     console.log("**********dashBoardController*******************");
 
     //____________________________________________________
@@ -12,7 +12,7 @@ angular.module("hrmsDashboard")
     $scope.user = $localStorage.user || 'Unknown User';
     console.log($scope.user.userName);
     $scope.logOut = function () {
-      dashBoardService.logout()
+      dashboardService.logout()
         .then(function (res) {
             if (res.status = "200") {
               $localStorage.$reset();
@@ -39,7 +39,7 @@ angular.module("hrmsDashboard")
     }
     //___________________________________________________
     $scope.removeUser = function (param) {
-      dashBoardService.removeUser(param).then(
+      dashboardService.removeUser(param).then(
         function (response) {
           if (response) {
             angular.forEach($scope.allUserList.data, function (user, index) {
@@ -67,7 +67,7 @@ angular.module("hrmsDashboard")
     $scope.userModel = {}
     $scope.addUser = function () {
       if ($scope.userModel.address && $scope.userModel.password && $scope.userModel.email && $scope.userModel.firstName && $scope.userModel.lastName && $scope.userModel.userName)
-        dashBoardService.addUser($scope.userModel).then(function (result) {
+        dashboardService.addUser($scope.userModel).then(function (result) {
           if (result) {
             $scope.msg = "User Added Successfully!";
             $scope.showMesssageModal('sm');
@@ -84,7 +84,7 @@ angular.module("hrmsDashboard")
 
     //____________________________________________________
     $scope.allUser = function () {
-      dashBoardService.findAllUser().then(function (receivedData) {
+      dashboardService.findAllUser().then(function (receivedData) {
         $scope.allUserList = receivedData;
         $scope.allUserList = new NgTableParams({
           sorting: {userName: "asc"}
@@ -112,7 +112,7 @@ angular.module("hrmsDashboard")
     }
     //____________________________________________________
     $scope.updateUser = function (user) {
-      dashBoardService.updateUser(user).then(function (response) {
+      dashboardService.updateUser(user).then(function (response) {
         for (i = 0; i < $scope.allUserList.data.length; i++) {
           $scope.allUserList.data[i].editing = null;
         }
